@@ -28,7 +28,3 @@ if __name__ == '__main__':
                 
             # Change back
             os.chdir(old_cwd)
-            
-            # And touch .downloaded file to help Makefile work
-            downloaded_fname = repos_csv_fname[:-4] + '.downloaded'
-            open(downloaded_fname, 'w').close()

@@ -11,9 +11,14 @@ $(DATADIR)/ruby-repos/awesome-rails-repos.csv : scripts/scrape_awesome_rails.py
 	$(PYTHON) $^ $@
 
 # Download GitHub repos (URLs are found in column 2 (0-indexed) of csv file)
-$(DATADIR)/ruby-repos/%.downloaded : scripts/download_github_repos.py $(DATADIR)/ruby-repos/%.csv
+$(DATADIR)/ruby-repos/%/ : scripts/download_github_repos.py $(DATADIR)/ruby-repos/%.csv
+	mkdir -p $@
+	$(PYTHON) $^ 2 $@
+	
+download : $(DATADIR)/ruby-repos/awesome-rails-repos/
+	
+# Extract identifiers from ruby files
+$(DATADIR)/word2vec/%.identifiers.txt : scripts/extract_identifiers.py \
+	$(DATADIR)/ruby-repos/%/
 	mkdir -p $(dir $@)
-	$(PYTHON) $^ 2 $(dir $@)
-	
-download : $(DATADIR)/ruby-repos/awesome-rails-repos.downloaded
-	
+	$(PYTHON) $^ $@
