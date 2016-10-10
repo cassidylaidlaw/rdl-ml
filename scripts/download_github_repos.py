@@ -24,7 +24,7 @@ if __name__ == '__main__':
         
             for row in repos_csv:
                 repo_url = row[column_num]
-                subprocess.call(['git', 'clone', repo_url])
+                subprocess.call(['git', 'clone', '--depth=1', repo_url])
                 
             # Change back
             os.chdir(old_cwd)
