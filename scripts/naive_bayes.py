@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import random
 import sys
 
 from sklearn import cross_validation
@@ -23,7 +24,7 @@ if __name__ == "__main__":
     return_types = np.array(return_types)
 
     classifier = GaussianNB()
-    kfold = cross_validation.KFold(n=len(vectors), n_folds=10)
+    kfold = cross_validation.KFold(n=len(vectors), n_folds=10, shuffle=True)
     cv_results = cross_validation.cross_val_score(classifier, vectors, return_types, cv=kfold, scoring="accuracy")
 
     print(cv_results.mean())
