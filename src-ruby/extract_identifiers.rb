@@ -10,7 +10,8 @@ else
   tokens = Ripper.lex(input)
   tokens.each do |location, type, text|
     if type == :on_ident
-      puts text
+      print text + " "
     end
   end
+  puts
 end
