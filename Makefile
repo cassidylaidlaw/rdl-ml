@@ -21,11 +21,18 @@ $(DATADIR)/word2vec/%.identifiers.txt : scripts/extract_identifiers.py \
 	mkdir -p $(dir $@)
 	$(PYTHON) $^ $@
 	
+# Train word2vec
 $(DATADIR)/word2vec/%.word2vec.pickle : scripts/train_word2vec.py \
 	$(DATADIR)/word2vec/%.identifiers.txt
 	mkdir -p $(dir $@)
 	$(PYTHON) $^ $@
 	
-word2vec : $(DATADIR)/word2vec/awesome-rails-repos.word2vec.pickle
+$(DATADIR)/word2vec/%.files.word2vec.pickle : scripts/train_word2vec.py \
+	$(DATADIR)/word2vec/%.identifiers.txt
+	mkdir -p $(dir $@)
+	$(PYTHON) $^ $@ file
+	
+word2vec : $(DATADIR)/word2vec/awesome-rails-repos.word2vec.pickle \
+	$(DATADIR)/word2vecawesome-rails-repos.files.word2vec.pickle
 
 	
