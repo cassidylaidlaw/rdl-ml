@@ -10,8 +10,6 @@ class Method_type:
     def add_type_sig(self,type_sig):
         self.type_sig += type_sig
 
-
-
 class Class_type:
     def __init__(self,name,poly_types = [],method_types = {}):
         self.name = name
