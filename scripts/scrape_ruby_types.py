@@ -1,49 +1,52 @@
-typeFile = "core-types/array.rb"
+import _path_config
+from os import path
+import subprocess
+import sys
+import re
+import json
+import csv
 
-class Method_type:
+#too tired to think of a better of getting classes with type sigs in rdl
+ruby_classes = ['Array', 'BasicObject', 'BigDecimal', 'Class', 'Bignum', 'Complex',
+ 'Date', 'Dir', 'Encoding', 'Enumerable', 'Exception', 'Enumerator', 'File',
+ 'Stat', 'FileUtils', 'CSV', 'Fixnum', 'Float', 'Hash', 'Integer', 'IO',
+ 'Kernel', 'Marshal', 'MatchData', 'Math', 'Module', 'NilClass', 'Numeric',
+  'Object', 'Pathname', 'Proc', 'Process', 'Random', 'Range', 'Rational',
+  'Regexp', 'Set', 'String', 'StringScanner', 'Symbol', 'Time', 'URI']
 
-    def __init__(self,name,type_sig:list):
-        #self.class_name = class_name
-        self.name = name
-        self.type_sig = type_sig
 
-    def add_type_sig(self,type_sig):
-        self.type_sig += type_sig
+GET_TYPES_RB = path.sep.join([_path_config.src_ruby,'get_types.rb'])
 
-class Class_type:
-    def __init__(self,name,poly_types = [],method_types = {}):
-        self.name = name
-        self.poly_types = poly_types
-        self.method_types = method_types
-        #hash where key is method name, and value is the method_type class for that method
 
-    def add_poly_types(self,poly_types:list):
-        self.poly_types+=poly_types
+def run_rdl_query(ruby_class_name):
+    print("running: " + ruby_class_name)
+    output = subprocess.run(['ruby', GET_TYPES_RB, ruby_class_name],
+                stdout = subprocess.PIPE).stdout.decode("utf-8")
+    return json.loads(output)
 
-    def add_method_type(self,method_type):
-        if method_type.name in self.method_types:
-            self.method_types[method_type.name].add_type_sig(method_type.type_sig)
-        else:
-            self.method_types[method_type.name] = method_type
 
-cType = None
-with open(typeFile) as rb_file:
-    for tmpLine in rb_file:
-        line = tmpLine.strip()
-        if cType is None and line.startswith("class"):
-            class_name = line.split(' ')[1]
-            cType = Class_type(class_name)
-        elif line.startswith("type_params"):
-            #get string with the poly type list without the brackets
-            poly_types_string = line[line.index('[')+1:line.index(']')].replace(':','')
-            poly_types = [elm.strip() for elm in poly_types_string.split(',')]
-            cType.add_poly_types(poly_types)
-        elif line.startswith("type"):
-            m_name = line[line.index(':')+1:line.index(',')].strip()
-            type_sig = [line[line.index("'")+1:-1]] #array with only elm being string
-            cType.add_method_type(Method_type(m_name,type_sig))
-            #m_type = method_type(m_name,type_sig)
+if len(sys.argv) != 2:
+    print('Usage: python3 scrape_ruby_types out.csv')
+    print('Uses rdl_query to get type info for all core types with type signatures')
+    print('outputs as csv to specifed output file')
+else:
+    _, out_fname = sys.argv
 
-print("method_types")
-for k in cType.method_types:
-    print("name:{},type_sig{}".format(k,cType.method_types[k].type_sig))
+    with open(out_fname, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',')
+        for ruby_class in ruby_classes:
+            types = run_rdl_query(ruby_class) #keys are method name, val is return types
+            for k,v in types.items():
+                writer.writerow((ruby_class,k,v[0]))
+                #made ruby return array of possible types but im just gonna ignore
+                #that for now since most only have 1 type to return
+
+
+
+
+
+
+
+#
+# for k in cType.method_types:
+#     print("name:{},type_sig{}".format(k,cType.method_types[k].type_sig))
