@@ -8,12 +8,15 @@ import csv
 
 #too tired to think of a better of getting classes with type sigs in rdl
 ruby_classes = ['Array', 'BasicObject', 'BigDecimal', 'Class', 'Bignum', 'Complex',
- 'Date', 'Dir', 'Encoding', 'Enumerable', 'Exception', 'Enumerator', 'File',
- 'Stat', 'FileUtils', 'CSV', 'Fixnum', 'Float', 'Hash', 'Integer', 'IO',
- 'Kernel', 'Marshal', 'MatchData', 'Math', 'Module', 'NilClass', 'Numeric',
-  'Object', 'Pathname', 'Proc', 'Process', 'Random', 'Range', 'Rational',
-  'Regexp', 'Set', 'String', 'StringScanner', 'Symbol', 'Time', 'URI']
+ 'Date', 'Encoding', 'Enumerable', 'Exception', 'Enumerator',
+ 'Stat', 'FileUtils', 'CSV', 'Fixnum', 'Float', 'Hash', 'Integer',
+ 'Marshal', 'MatchData', 'Math', 'Module', 'NilClass', 'Numeric',
+  'Object',  'Proc', 'Process', 'Random', 'Range', 'Rational',
+  'Regexp', 'Set', 'String', 'StringScanner', 'Symbol', 'Time']
 
+#these classes have a good amount of none standard return values so ill
+#deal with these later
+# 'Kernel',  'File',  'Dir', 'URI', 'IO', 'Pathname',
 
 GET_TYPES_RB = path.sep.join([_path_config.src_ruby,'get_types.rb'])
 
@@ -31,22 +34,26 @@ if len(sys.argv) != 2:
     print('outputs as csv to specifed output file')
 else:
     _, out_fname = sys.argv
-
+    polymorphic = re.compile("[tuvk]$")
+    otherInfo = re.compile("^(.+) (.+)")
+    #some types returned are in format '<type> <info about type> so this will remove the info'
     with open(out_fname, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
         for ruby_class in ruby_classes:
             types = run_rdl_query(ruby_class) #keys are method name, val is return types
             for k,v in types.items():
-                writer.writerow((ruby_class,k,v[0]))
-                #made ruby return array of possible types but im just gonna ignore
-                #that for now since most only have 1 type to return
+                if k.startswith("<=>"):
+                     #not sure if i should make this its own type
+                     #or just say it returns nil or a number
+                    continue
+                for rType in v:
+                    if polymorphic.match(rType):
+                        continue
 
-
-
-
-
-
-
-#
-# for k in cType.method_types:
-#     print("name:{},type_sig{}".format(k,cType.method_types[k].type_sig))
+                    match = otherInfo.match(rType)
+                    if match:
+                        writer.writerow((ruby_class,k,match.group(1)))
+                    else:
+                        writer.writerow((ruby_class,k,rType))
+                    #if a method has multiple return types
+                    #it will be on multiple lines
