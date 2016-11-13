@@ -1,4 +1,5 @@
 import _path_config
+from _parse_type_sigs import parse_sigs
 from os import path
 import subprocess
 import sys
@@ -41,19 +42,6 @@ else:
         writer = csv.writer(csvfile, delimiter=',')
         for ruby_class in ruby_classes:
             types = run_rdl_query(ruby_class) #keys are method name, val is return types
-            for k,v in types.items():
-                if k.startswith("<=>"):
-                     #not sure if i should make this its own type
-                     #or just say it returns nil or a number
-                    continue
-                for rType in v:
-                    if polymorphic.match(rType):
-                        continue
-
-                    match = otherInfo.match(rType)
-                    if match:
-                        writer.writerow((ruby_class,k,match.group(1)))
-                    else:
-                        writer.writerow((ruby_class,k,rType))
-                    #if a method has multiple return types
-                    #it will be on multiple lines
+            sigs = parse_sigs(types)
+            for sig in sigs:
+                writer.writerow([ruby_class]+sig)
