@@ -11,10 +11,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python naive_bayes.py <dataset>")
+        print("Usage: python evaluate_models.py <dataset>")
         sys.exit()
 
     # Load data from csv file into lists
@@ -24,8 +25,8 @@ if __name__ == "__main__":
     with open(input_csv, 'r') as data_file:
         data_reader = csv.reader(data_file)
         for row in data_reader:
-            vectors.append(row[0:100])
-            return_types.append(row[100])
+            vectors.append(row[0:(len(row)-2)])
+            return_types.append(row[len(row)-1])
 
     # Convert lists to numpy arrays
     vectors = np.array(vectors).astype(np.float)
@@ -38,10 +39,11 @@ if __name__ == "__main__":
     models.append(("Decision Tree Classifier", DecisionTreeClassifier()))
     models.append(("Naive Bayes", GaussianNB()))
     models.append(("Support Vector Machine", SVC()))
+    models.append(("Random Forest Classifier", RandomForestClassifier()))
 
     # Let's run our models!
     for name, model in models:
-        kfold = cross_validation.KFold(n=len(vectors), n_folds=10, random_state=11)
+        kfold = cross_validation.KFold(n=len(vectors), n_folds=10, shuffle=True)
         results = cross_validation.cross_val_score(model, vectors, return_types, cv=kfold, scoring="accuracy")
         print("%s: mean %f stdev %f" % (name, results.mean(), results.std()))
 
