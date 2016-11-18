@@ -41,3 +41,12 @@ $(DATADIR)/types/stdlib.csv : scripts/scrape_ruby_types.py
 	mkdir -p $(dir $@)
 	$(PYTHON) $^ $@
 	
+# Convert observed types to CSV files for training/testing
+$(DATADIR)/types/tests/%.return.csv : scripts/types_json2csv.py \
+	$(DATADIR)/types/tests/%.json
+	$(PYTHON) $^ $@ return
+	
+$(DATADIR)/types/tests/%.params.csv : scripts/types_json2csv.py \
+	$(DATADIR)/types/tests/%.json
+	$(PYTHON) $^ $@ params
+	
