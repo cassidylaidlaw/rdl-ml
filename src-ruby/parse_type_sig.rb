@@ -13,14 +13,58 @@ end
 #will simplify the type passed if it a numeric type, otherwise returns the type passed
 #will first check against integer, if it is not it checks numeric. Returns first matched type
 def simplify_numerics(type)
+  # begin
+  #     return "Integer" if Object.const_get(type) <= Integer
+  #     return "Numeric" if Object.const_get(type) <= Numeric
+  #     return type
+  #  rescue TypeError,ArgumentError
+  #    return Integer if type <= Integer
+  #    return Numeric if type <= Numeric
+  #    return type
+  #  rescue NameError,ArgumentError
+  #    return type
+  #  end
   begin
-      return "Integer" if Object.const_get(type) <= Integer
-      return "Numeric" if Object.const_get(type) <= Numeric
-      return type
-   rescue NameError, TypeError
+      if type.class != Class then
+        return "Integer" if Object.const_get(type) <= Integer
+        return "Numeric" if Object.const_get(type) <= Numeric
+        return type
+      else
+       return Integer if type <= Integer
+       return Numeric if type <= Numeric
        return type
-   end
+      end
+    rescue NameError, TypeError, ArgumentError
+         return type
+     end
 end
+
+def simplify_arr(return_types)
+  return_types.map! do |x|
+    x = 'Numeric' if x=='0.0'
+    # begin
+    #   x = 'Bool' if  x <= TrueClass || x <= FalseClass
+    # rescue ArgumentError
+    # end
+    simplify_numerics(x)
+  end
+
+  if return_types.all? { |x|
+    if x.class != Class then
+    x == 'true' || x == 'false' || x =='nil'
+  else
+    x <= TrueClass || x <= FalseClass || x <= NilClass
+  end
+  }
+      return_types = ['Bool']
+  elsif type_check_arr(return_types, Integer)
+      return_types = ['Integer']
+  elsif type_check_arr(return_types, Numeric)
+      return_types = ['Numeric']
+  end
+  return return_types
+end
+
 
 #expects type sig of form '<method name>:(<parmeter types>) <Block> -> <return types>'
 def parse_type_sig(sig)
@@ -36,8 +80,6 @@ def parse_type_sig(sig)
       x = tmp if tmp
       x.gsub!(/[\[\]]/, '')
       x.gsub!(/ r$/, '') # remove r that is usally there for post condtions
-      x = 'Numeric' if x=='0.0'
-      simplify_numerics(x)
   end
 
   if return_types.all? { |x| x == 'true' || x == 'false' || x =='nil'}
