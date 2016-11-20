@@ -1,9 +1,14 @@
 
+import csv
 import string
 
 import numpy as np
 
+from sklearn.naive_bayes import GaussianNB
+from gensim.models.word2vec import LineSentence
+from gensim.models.word2vec import Word2Vec
 from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.pipeline import make_pipeline
 
 def tokenize_rb_identifier(identifier):
     """
@@ -73,6 +78,26 @@ class Word2VecTransformer(BaseEstimator, TransformerMixin):
         return self
         
     def transform(self, X, y = None):
-        return np.vstack([identifier2vec(identifier, self.word2vec)
-                          for identifier in X])
+        self.word2vec.train(X)
+        return np.vstack([self.word2vec[identifier] for identifier in X])
 
+
+def make_word2vec_pipeline(fname, input_csv):
+    model = Word2Vec(LineSentence(fname), size=400, window=5, min_count=1)
+    model.init_sims(replace=True)
+    transformer = Word2VecTransformer(model)
+    my_pipeline = make_pipeline(transformer, GaussianNB())
+
+    identifiers = list()
+    return_types = list()
+    with open(input_csv, 'r') as data_file:
+        data_reader = csv.reader(data_file)
+        for row in data_reader:
+            identifiers.append(row[1])
+            return_types.append(row[2])
+
+    identifiers = np.array(identifiers)
+    return_types = np.array(return_types)
+    print(return_types)
+
+    return my_pipeline.fit(identifiers, return_types)
