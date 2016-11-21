@@ -35,7 +35,7 @@ def tokenize_rb_identifier(identifier):
                 token_start = index
         tokens.append(token[token_start:])
                 
-    return tokens
+    return [token.lower() for token in tokens]
 
 def identifier2vec(identifier, word2vec):
     """
@@ -78,7 +78,6 @@ class Word2VecTransformer(BaseEstimator, TransformerMixin):
         return self
         
     def transform(self, X, y = None):
-        self.word2vec.train(X)
         return np.vstack([self.word2vec[identifier] for identifier in X])
 
 
