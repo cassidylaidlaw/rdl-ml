@@ -28,6 +28,7 @@ class RDL::Wrap
   def self.wrap(klass_str, meth)
     $__rdl_wrap_switch.off {
       klass_str = klass_str.to_s
+      return if klass_str =~ /(Test::(.)+)/
       klass = RDL::Util.to_class klass_str
       return if wrapped? klass, meth
       return if RDL::Config.instance.nowrap.member? klass
@@ -38,7 +39,7 @@ class RDL::Wrap
       is_singleton_method = RDL::Util.has_singleton_marker(klass_str)
       full_method_name = RDL::Util.pp_klass_method(klass_str, meth)
       klass_str_without_singleton = if is_singleton_method then RDL::Util.remove_singleton_marker(klass_str) else klass_str end
-
+      #puts "checking #{klass_str}, meth #{meth}"
       klass.class_eval <<-RUBY, __FILE__, __LINE__
         alias_method meth_old, meth
         def #{meth}(*args, &blk)
@@ -46,7 +47,6 @@ class RDL::Wrap
           meth = types = matches = nil
 	        bind = binding
           inst = nil
-
           $__rdl_wrap_switch.off {
             $__rdl_wrapped_calls["#{full_method_name}"] += 1 if RDL::Config.instance.gather_stats
             inst = nil

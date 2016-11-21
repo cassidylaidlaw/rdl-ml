@@ -2,23 +2,38 @@ require_relative 'parse_type_sig'
 
 require 'json'
 require 'pp'
-if ARGV.length < 1
-  puts "Usage: ruby guess_types.rb <folder of files to run>, you can specify multiple folders"
+# require 'pathname'
+
+if ARGV.length != 2
+#  puts "Usage: ruby guess_types.rb <folder of files to run>/<file to run>, you can specify multiple folders/files"
   puts "Runs the files passed and reports the types seen for each method"
   exit
 end
-# input_fdir = ARGV[0]
 
+
+old_stdout = $stdout
 files = []
-ARGV.each{|input_fdir|
-  #if passing a relative dir path you may need to add an extra '../' at the beginning
-  tmp = File.expand_path(input_fdir +"/*" , __FILE__)
-  files+=Dir[tmp]
-}
+#files.push(File.expand_path("../"+ARGV[0], __FILE__))
+files.push(ARGV[0])
+key = File.basename ARGV[0]
+puts "--------\n key: #{key}"
+# ARGV.each{|input|
+#   if input =~ /(.)*\.rb$/ then
+#     tmp = File.expand_path("../"+input, __FILE__)
+#     files.push(tmp)
+#   else
+#     tmp = File.expand_path("../"+input +"/*" , __FILE__)
+#     files+=Dir[tmp]
+#   end
+# }
+# puts "arg 0: #{File.basename ARGV[0]},arg 1:#{ARGV[1]}"
 
+out_file  = File.expand_path("../"+ARGV[1],__FILE__)
+#out_file = ARGV[1]
 
 require_relative "../rdl-modified/lib/rdl"
 at_exit do
+  $stdout = old_stdout
   #sig_hash = Hash.new(Hash.new(Hash.new(Array.new)))
   #im so sorry for what your about to witness
   sig_hash = Hash.new { |hash, key| hash[key] =  Hash.new { |hash2, key2| hash2[key2] = Hash.new { |hash3, key3| hash3[key3] =  []} }}
@@ -69,14 +84,35 @@ at_exit do
 
   }
   #puts $__rdl_info.info
-  File.write('../scripts/guess.json', sig_hash.to_json)
+  # open(out_file, 'a') do |f|
+  # f << sig_hash.to_json
+  # f << "\n"
+  # end
+  data_hash = JSON.parse(File.read(out_file))
+  data_hash[key] = sig_hash
+  File.write(out_file, data_hash.to_json)
   #puts sig_hash.to_json
 end
-pwd = Dir.pwd
-files.each{|fname|
 
-  Dir.chdir(File.dirname(fname))
+#
+# $enable_tracing = false
+# $trace_out = open('trace.txt', 'w')
+#
+# set_trace_func proc { |event, file, line, id, binding, classname|
+#   if $enable_tracing && event == 'call'
+#     $trace_out.puts "#{file}:#{line} #{classname}##{id}"
+#   end
+# }
+#
+# $enable_tracing = true
+
+#pwd = Dir.pwd
+puts "---------------"
+files.each{|fname|
+#  Dir.chdir(File.dirname(fname))
+  $LOAD_PATH.unshift(File.dirname(fname)) unless $LOAD_PATH.include?(File.dirname(fname))
   puts fname
-  load fname if fname =~ /(.)*\.rb$/
-  Dir.chdir(pwd)
+  $stdout = StringIO.new('', 'w')
+  require fname if fname =~ /(.)*\.rb$/
+#  Dir.chdir(pwd)
 }
