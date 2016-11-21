@@ -9,7 +9,7 @@ import sys
 
 from gensim.models.word2vec import Word2Vec
 from rdlml.nlp import tokenize_rb_identifier
-from sklearn import cross_validation
+from sklearn.model_selection import cross_val_score, KFold
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -18,34 +18,25 @@ from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 
-if len(sys.argv) != 2:
-    print("Usage: python evaluate_models.py <dataset.csv>")
+if len(sys.argv) != 4:
+    print("Usage: python3 evaluate_models.py <model.pickle> <dataset.csv> <results.csv>")
     sys.exit()
 
-# Store method names and return types in two lists
-_, datafname = sys.argv
+# Load the pretrained Word2vec model
+_, modelfname, datasetfname, resultsfname = sys.argv
+word2vec_model = Word2Vec.load(modelfname)
+
+# Load method names and return types into two lists
 method_names = list()
 return_types = list()
-with open(datafname, 'r') as data_file:
-    data_reader = csv.reader(data_file)
-    for row in data_reader:
+with open(datasetfname, 'r') as datafile:
+    # datareader = csv.DictReader(datafile)
+    datareader = csv.reader(datafile)
+    for row in datareader:
+        # method_names.append(row["Method name"])
         method_names.append(row[1])
+        # return_types.append(row["Return type"])
         return_types.append(row[2])
-
-# Put all method names together with tokens in a list
-tokenized_method_names = list()
-for method_name in method_names:
-    tokens = tokenize_rb_identifier(method_name)
-    if method_name not in tokens:
-        tokens = [method_name] + tokens
-    tokenized_method_names.append(tokens)
-
-# Train a Word2vec model on tokenized_method_names
-program = os.path.basename(sys.argv[0])
-logger = logging.getLogger(program)
-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s')
-logging.root.setLevel(level=logging.INFO)
-word2vec_model = Word2Vec(tokenized_method_names, size=50, min_count=1, sg=1, hs=1)
 
 # Create list of vectors using Word2vec model
 vectors = list()
@@ -66,8 +57,11 @@ models.append(("Support Vector Machine", SVC()))
 models.append(("Random Forest Classifier", RandomForestClassifier()))
 models.append(("Extra Trees Classifier", ExtraTreesClassifier()))
 
-# Let's run our models!
-for name, model in models:
-    kfold = cross_validation.KFold(n=len(vectors), n_folds=10, shuffle=True)
-    results = cross_validation.cross_val_score(model, vectors, return_types, cv=kfold, scoring="accuracy")
-    print("%s: mean %f stdev %f" % (name, results.mean(), results.std()))
+# Run the models using cross validation and write results to file
+with open(resultsfname, 'w') as resultsfile:
+    resultswriter = csv.writer(resultsfile)
+    resultswriter.writerow(["model", "mean", "stdev"])
+    for name, model in models:
+        kfold = KFold(n_splits=2, shuffle=True)
+        results = cross_val_score(model, vectors, return_types, cv=kfold, scoring="accuracy")
+        resultswriter.writerow([name, results.mean(), results.std()])
