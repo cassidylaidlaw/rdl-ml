@@ -14,13 +14,13 @@ if __name__ == '__main__':
         print('on the third command-line argument.')
     else:
         _, json_fname, csv_fname, data_type = sys.argv
-        
+
         with open(json_fname, 'r') as json_file:
             json_data = json.load(json_file)
-        
+
         with open(csv_fname, 'w') as csv_file:
             csv_out = csv.writer(csv_file)
-            
+
             # Write header row
             if data_type == 'return':
                 csv_out.writerow(['Method name', 'Class name',
@@ -28,16 +28,22 @@ if __name__ == '__main__':
             else:
                 csv_out.writerow(['Parameter name', 'Method name',
                                   'Class name', 'Parameter type'])
-            
+
+            test = ("test","Test")
             for class_name, methods in json_data.items():
+                if class_name.startswith(test):
+                    continue
                 for method_name, method_data in methods.items():
+
+                    if method_name.startswith(test):
+                        continue
                     # Get return type information
                     if 'ret_types' in method_data:
                         return_type = method_data['ret_types'][0]
                         return_type = generalize_type(return_type)
                     else:
                         return_type = None
-                        
+
                     # Get parameter name/return type information
                     if 'parameter_names' in method_data:
                         parameter_names = [param for param in
@@ -51,7 +57,7 @@ if __name__ == '__main__':
                                                    parameter_types))
                     else:
                         parameter_types = []
-                    
+
                     # Write rows to CSV
                     if data_type == 'return':
                         if return_type is not None:
