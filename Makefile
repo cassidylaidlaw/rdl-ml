@@ -4,6 +4,7 @@ PYTHON=python3
 DATADIR=data
 
 .PHONY : word2vec
+.PRECIOUS : $(DATADIR)/types/tests/%.return.csv
 
 # Scrape awesome-rails GitHub to get a list of rails repositories
 $(DATADIR)/ruby-repos/awesome-rails-repos.csv : scripts/scrape_awesome_rails.py
@@ -49,4 +50,10 @@ $(DATADIR)/types/tests/%.return.csv : scripts/types_json2csv.py \
 $(DATADIR)/types/tests/%.params.csv : scripts/types_json2csv.py \
 	$(DATADIR)/types/tests/%.json
 	$(PYTHON) $^ $@ params
+	
+# Evaluate performance with cross validation
+$(DATADIR)/types/tests/%.return.cv.csv : scripts/new_evaluate_models.py \
+	$(DATADIR)/types/tests/%.return.csv \
+	$(DATADIR)/word2vec/awesome-rails-repos.files.word2vec.pickle
+	$(PYTHON) $^ $@
 	
