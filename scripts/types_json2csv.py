@@ -29,14 +29,18 @@ if __name__ == '__main__':
                 csv_out.writerow(['Parameter name', 'Method name',
                                   'Class name', 'Parameter type'])
 
-            test = ("test","Test")
             for class_name, methods in json_data.items():
-                if class_name.startswith(test):
+                if class_name.lower().startswith('test'):
                     continue
+                
                 for method_name, method_data in methods.items():
-
-                    if method_name.startswith(test):
+                    if method_name.lower().startswith('test'):
                         continue
+                    # Initialize methods don't really return anything so omit
+                    # them from the return type data
+                    if data_type == 'return' and method_name == 'initialize':
+                        continue
+                    
                     # Get return type information
                     if 'ret_types' in method_data:
                         return_type = method_data['ret_types'][0]
