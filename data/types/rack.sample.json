@@ -1,0 +1,1589 @@
+{
+   "Rack::Lint::HijackWrapper": {
+      "initialize": {
+         "parameter_names": ["io"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 505]
+      }
+   },
+   "Rack::Lint::ErrorWrapper": {
+      "initialize": {
+         "parameter_names": ["error"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 467]
+      },
+      "write": {
+         "parameter_names": ["str"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["Integer"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 477]
+      },
+      "flush": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 484]
+      },
+      "puts": {
+         "parameter_names": ["str"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 472]
+      },
+      "close": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 489]
+      }
+   },
+   "Rack::Lint::InputWrapper": {
+      "initialize": {
+         "parameter_names": ["input"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 356]
+      },
+      "gets": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 362]
+      },
+      "each": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 421]
+      },
+      "read": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 388]
+      },
+      "rewind": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 436]
+      },
+      "close": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 449]
+      }
+   },
+   "Rack::Lint": {
+      "initialize": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 9]
+      },
+      "each": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 699]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 36]
+      },
+      "close": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 746]
+      },
+      "check_headers": {
+         "parameter_names": ["header"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 624]
+      },
+      "_call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 40]
+      },
+      "check_env": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 65]
+      },
+      "check_status": {
+         "parameter_names": ["status"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 617]
+      },
+      "check_hijack_response": {
+         "parameter_names": ["headers", "env"],
+         "parameter_types": [["Hash"],["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 567]
+      },
+      "check_content_type": {
+         "parameter_names": ["status", "headers"],
+         "parameter_types": [["Object"],["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 659]
+      },
+      "check_content_length": {
+         "parameter_names": ["status", "headers"],
+         "parameter_types": [["Object"],["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 673]
+      },
+      "check_input": {
+         "parameter_names": ["input"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 335]
+      },
+      "check_error": {
+         "parameter_names": ["error"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 455]
+      },
+      "check_hijack": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 520]
+      },
+      "verify_content_length": {
+         "parameter_names": ["bytes"],
+         "parameter_types": [["Integer"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/lint.rb", 686]
+      }
+   },
+   "Rack::Recursive": {
+      "initialize": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/recursive.rb", 33]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/recursive.rb", 37]
+      },
+      "include": {
+         "parameter_names": ["env", "path"],
+         "parameter_types": [["Hash"],["Array"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/recursive.rb", 48]
+      },
+      "_call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/recursive.rb", 41]
+      }
+   },
+   "Rack::ForwardRequest": {
+      "initialize": {
+         "parameter_names": ["url", "env"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/recursive.rb", 13]
+      }
+   },
+   "Rack::NullLogger": {
+      "initialize": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 3]
+      },
+      "<<": {
+         "parameter_names": ["msg"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 35]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 7]
+      },
+      "fatal": {
+         "parameter_names": ["progname", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 16]
+      },
+      "warn": {
+         "parameter_names": ["progname", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 14]
+      },
+      "close": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 33]
+      },
+      "add": {
+         "parameter_names": ["severity", "message", "progname", "block"],
+         "parameter_types": [["Integer"],["String"],["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 34]
+      },
+      "error": {
+         "parameter_names": ["progname", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 15]
+      },
+      "info": {
+         "parameter_names": ["progname", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 12]
+      },
+      "debug": {
+         "parameter_names": ["progname", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 13]
+      },
+      "fatal?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 22]
+      },
+      "error?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 21]
+      },
+      "warn?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 20]
+      },
+      "info?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 18]
+      },
+      "debug?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 19]
+      },
+      "unknown": {
+         "parameter_names": ["progname", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/null_logger.rb", 17]
+      }
+   },
+   "Rack::Multipart::UploadedFile": {
+      "initialize": {
+         "parameter_names": ["path", "content_type", "binary"],
+         "parameter_types": [["String"],["String"],["Bool"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/uploaded_file.rb", 10]
+      },
+      "respond_to?": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/uploaded_file.rb", 24]
+      },
+      "method_missing": {
+         "parameter_names": ["method_name", "args", "block"],
+         "parameter_types": [["Object"],["Array"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/uploaded_file.rb", 28]
+      },
+      "path": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/uploaded_file.rb", 19]
+      },
+      "local_path": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/uploaded_file.rb", 19]
+      },
+      "original_filename": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/uploaded_file.rb", 5]
+      }
+   },
+   "Rack::Multipart::Generator": {
+      "initialize": {
+         "parameter_names": ["params", "first"],
+         "parameter_types": [["Hash"],["Bool"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/generator.rb", 4]
+      },
+      "multipart?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/generator.rb", 29]
+      },
+      "flattened_params": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/generator.rb", 47]
+      },
+      "content_for_tempfile": {
+         "parameter_names": ["io", "file", "name"],
+         "parameter_types": [["Object"],["Object"],["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/generator.rb", 72]
+      },
+      "content_for_other": {
+         "parameter_names": ["file", "name"],
+         "parameter_types": [["Object"],["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/generator.rb", 83]
+      },
+      "dump": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/generator.rb", 12]
+      }
+   },
+   "Rack::Multipart::Parser::Collector::TempfilePart": {
+      "close": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 116]
+      },
+      "file?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 115]
+      }
+   },
+   "Rack::Multipart::Parser::Collector::BufferPart": {
+      "close": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 111]
+      },
+      "file?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 110]
+      }
+   },
+   "Rack::Multipart::Parser::Collector::MimePart": {
+      "get_data": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 81]
+      }
+   },
+   "Rack::Multipart::Parser::Collector": {
+      "initialize": {
+         "parameter_names": ["tempfile"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 121]
+      },
+      "check_open_files": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 155]
+      },
+      "each": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 127]
+      },
+      "on_mime_head": {
+         "parameter_names": ["mime_index", "head", "filename", "content_type", "name"],
+         "parameter_types": [["Integer"],["Object"],["String"],["String"],["String"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 131]
+      },
+      "on_mime_body": {
+         "parameter_names": ["mime_index", "content"],
+         "parameter_types": [["Integer"],["String"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 146]
+      },
+      "on_mime_finish": {
+         "parameter_names": ["mime_index"],
+         "parameter_types": [["Integer"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 150]
+      }
+   },
+   "Rack::Multipart::Parser::MultipartInfo": {},
+   "Rack::Multipart::Parser::BoundedIO": {
+      "initialize": {
+         "parameter_names": ["io", "content_length"],
+         "parameter_types": [["Object"],["Integer"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 15]
+      },
+      "read": {
+         "parameter_names": ["size"],
+         "parameter_types": [["Integer"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 21]
+      },
+      "rewind": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Integer"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 44]
+      },
+      "eof?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 42]
+      }
+   },
+   "Rack::Multipart::Parser": {
+      "initialize": {
+         "parameter_names": ["boundary", "tempfile", "bufsize", "query_parser"],
+         "parameter_types": [["String"],["Object"],["Integer"],["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 167]
+      },
+      "handle_empty_content!": {
+         "parameter_names": ["content", "eof"],
+         "parameter_types": [["String"],["Bool"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 359]
+      },
+      "run_parser": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 203]
+      },
+      "tag_multipart_encoding": {
+         "parameter_names": ["filename", "content_type", "name", "body"],
+         "parameter_types": [["String"],["String"],["String"],["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 330]
+      },
+      "handle_fast_forward": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Symbol"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 220]
+      },
+      "handle_consume_token": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Symbol"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 229]
+      },
+      "handle_mime_head": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Symbol"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 239]
+      },
+      "handle_mime_body": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Symbol"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 265]
+      },
+      "consume_boundary": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 283]
+      },
+      "get_filename": {
+         "parameter_names": ["head"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 294]
+      },
+      "rx": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Regexp"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 281]
+      },
+      "full_boundary": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 279]
+      },
+      "result": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 190]
+      },
+      "state": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 165]
+      },
+      "on_read": {
+         "parameter_names": ["content", "eof"],
+         "parameter_types": [["String"],["Bool"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/multipart/parser.rb", 184]
+      }
+   },
+   "Rack::Multipart::MultipartPartLimitError": {},
+   "Rack::Server::Options": {
+      "parse!": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 9]
+      },
+      "handler_opts": {
+         "parameter_names": ["options"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 106]
+      }
+   },
+   "Rack::Server": {
+      "initialize": {
+         "parameter_names": ["options"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 184]
+      },
+      "opt_parser": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 338]
+      },
+      "parse_options": {
+         "parameter_names": ["args"],
+         "parameter_types": [["Array"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 327]
+      },
+      "build_app_from_string": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 323]
+      },
+      "build_app_and_options_from_config": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 313]
+      },
+      "wrapped_app": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 352]
+      },
+      "check_pid!": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 368]
+      },
+      "daemonize_app": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Integer"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 356]
+      },
+      "write_pid": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 360]
+      },
+      "build_app": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 342]
+      },
+      "pidfile_process_status": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Symbol"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 378]
+      },
+      "start": {
+         "parameter_names": ["blk"],
+         "parameter_types": [["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 257]
+      },
+      "app": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 217]
+      },
+      "server": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 299]
+      },
+      "middleware": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 253]
+      },
+      "default_options": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/server.rb", 203]
+      }
+   },
+   "Rack::MockResponse": {
+      "initialize": {
+         "parameter_names": ["status", "headers", "body", "errors"],
+         "parameter_types": [["Integer"],["Hash"],["String"],["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 163]
+      },
+      "=~": {
+         "parameter_names": ["other"],
+         "parameter_types": [["Regexp"]
+         ],
+         "ret_types": ["Integer"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 170]
+      },
+      "empty?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 192]
+      },
+      "match": {
+         "parameter_names": ["other"],
+         "parameter_types": [["String or Regexp"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 174]
+      },
+      "body": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 178]
+      }
+   },
+   "Rack::MockRequest::FatalWarner": {
+      "string": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 38]
+      },
+      "write": {
+         "parameter_names": ["warning"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 31]
+      },
+      "flush": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 35]
+      },
+      "puts": {
+         "parameter_names": ["warning"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 27]
+      }
+   },
+   "Rack::MockRequest::FatalWarning": {},
+   "Rack::MockRequest": {
+      "initialize": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 52]
+      },
+      "delete": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 60]
+      },
+      "options": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 62]
+      },
+      "request": {
+         "parameter_names": ["method", "uri", "opts"],
+         "parameter_types": [["String"],["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 64]
+      },
+      "head": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 61]
+      },
+      "post": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 57]
+      },
+      "get": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 56]
+      },
+      "put": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 58]
+      },
+      "patch": {
+         "parameter_names": ["uri", "opts"],
+         "parameter_types": [["String"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/mock.rb", 59]
+      }
+   },
+   "Rack::Cascade": {},
+   "Rack::QueryParser::Params": {
+      "initialize": {
+         "parameter_names": ["limit"],
+         "parameter_types": [["Integer"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 154]
+      },
+      "key?": {
+         "parameter_names": ["key"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 170]
+      },
+      "to_params_hash": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 174]
+      }
+   },
+   "Rack::Builder": {
+      "initialize": {
+         "parameter_names": ["default_app", "block"],
+         "parameter_types": [["Object"],["Proc"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 53]
+      },
+      "generate_map": {
+         "parameter_names": ["default_app", "mapping"],
+         "parameter_types": [["Object"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 158]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 152]
+      },
+      "map": {
+         "parameter_names": ["path", "block"],
+         "parameter_types": [["String"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 139]
+      },
+      "run": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 103]
+      },
+      "to_app": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 144]
+      },
+      "use": {
+         "parameter_names": ["middleware", "args", "block"],
+         "parameter_types": [["Object"],["Array"],["Proc"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 81]
+      },
+      "warmup": {
+         "parameter_names": ["prc", "block"],
+         "parameter_types": [["Proc"],["Proc"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/builder.rb", 116]
+      }
+   },
+   "Rack::QueryParser::InvalidParameterError": {},
+   "Rack::QueryParser::ParameterTypeError": {},
+   "Rack::QueryParser": {
+      "initialize": {
+         "parameter_names": ["params_class", "key_space_limit", "param_depth_limit"],
+         "parameter_types": [["Class"],["Integer"],["Integer"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 21]
+      },
+      "unescape": {
+         "parameter_names": ["s"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 149]
+      },
+      "params_hash_type?": {
+         "parameter_names": ["obj"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 133]
+      },
+      "params_hash_has_key?": {
+         "parameter_names": ["hash", "key"],
+         "parameter_types": [["Hash"],["String"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 137]
+      },
+      "parse_query": {
+         "parameter_names": ["qs", "d", "unescaper"],
+         "parameter_types": [["String"],["String"],["Proc"]
+         ],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 32]
+      },
+      "parse_nested_query": {
+         "parameter_names": ["qs", "d"],
+         "parameter_types": [["String"],["String"]
+         ],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 60]
+      },
+      "param_depth_limit": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Integer"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 19]
+      },
+      "new_depth_limit": {
+         "parameter_names": ["param_depth_limit"],
+         "parameter_types": [["Integer"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 127]
+      },
+      "key_space_limit": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Integer"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 19]
+      },
+      "new_space_limit": {
+         "parameter_names": ["key_space_limit"],
+         "parameter_types": [["Integer"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 123]
+      },
+      "make_params": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 119]
+      },
+      "normalize_params": {
+         "parameter_names": ["params", "name", "v", "depth"],
+         "parameter_types": [["Hash"],["String"],["String"],["Integer"]
+         ],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/query_parser.rb", 78]
+      }
+   },
+   "Rack::MethodOverride": {
+      "initialize": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb", 9]
+      },
+      "allowed_methods": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb", 34]
+      },
+      "method_override_param": {
+         "parameter_names": ["req"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb", 38]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb", 13]
+      },
+      "method_override": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/method_override.rb", 25]
+      }
+   },
+   "Rack::BodyProxy": {
+      "initialize": {
+         "parameter_names": ["body", "block"],
+         "parameter_types": [["Object"],["Proc"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/body_proxy.rb", 3]
+      },
+      "respond_to?": {
+         "parameter_names": ["method_name", "include_all"],
+         "parameter_types": [["Symbol"],["Bool"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/body_proxy.rb", 9]
+      },
+      "method_missing": {
+         "parameter_names": ["method_name", "args", "block"],
+         "parameter_types": [["Symbol"],["Array"],["Proc"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/body_proxy.rb", 39]
+      },
+      "each": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/body_proxy.rb", 35]
+      },
+      "close": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/body_proxy.rb", 17]
+      },
+      "closed?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/body_proxy.rb", 27]
+      }
+   },
+   "Rack::Logger": {
+      "initialize": {
+         "parameter_names": ["app", "level"],
+         "parameter_types": [["Object"],["Integer"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/logger.rb", 6]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/logger.rb", 10]
+      }
+   },
+   "Rack::Auth::Digest::MD5": {
+      "initialize": {
+         "parameter_names": ["app", "realm", "opaque", "authenticator"],
+         "parameter_types": [["Object"],["String or Hash"],["String"],["Proc"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 24]
+      },
+      "valid?": {
+         "parameter_names": ["auth"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 81]
+      },
+      "challenge": {
+         "parameter_names": ["hash"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 77]
+      },
+      "params": {
+         "parameter_names": ["hash"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 66]
+      },
+      "valid_qop?": {
+         "parameter_names": ["auth"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 85]
+      },
+      "H": {
+         "parameter_names": ["data"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 102]
+      },
+      "valid_opaque?": {
+         "parameter_names": ["auth"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 89]
+      },
+      "valid_nonce?": {
+         "parameter_names": ["auth"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 93]
+      },
+      "valid_digest?": {
+         "parameter_names": ["auth"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 97]
+      },
+      "digest": {
+         "parameter_names": ["auth", "password"],
+         "parameter_types": [["Object"],["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 120]
+      },
+      "md5": {
+         "parameter_names": ["data"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 102]
+      },
+      "KD": {
+         "parameter_names": ["secret", "data"],
+         "parameter_types": [["String"],["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 108]
+      },
+      "A1": {
+         "parameter_names": ["auth", "password"],
+         "parameter_types": [["Object"],["String"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 112]
+      },
+      "A2": {
+         "parameter_names": ["auth"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 116]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 37]
+      },
+      "passwords_hashed?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/md5.rb", 33]
+      }
+   },
+   "Rack::Auth::Digest::Request": {
+      "respond_to?": {
+         "parameter_names": ["sym", ""],
+         "parameter_types": [["Symbol"],["Array"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 29]
+      },
+      "method_missing": {
+         "parameter_names": ["sym", "args"],
+         "parameter_types": [["Symbol"],["Array"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 33]
+      },
+      "method": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 9]
+      },
+      "params": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 25]
+      },
+      "digest?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 13]
+      },
+      "correct_uri?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 17]
+      },
+      "nonce": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/request.rb", 21]
+      }
+   },
+   "Rack::Auth::Digest::Nonce": {
+      "initialize": {
+         "parameter_names": ["timestamp", "given_digest"],
+         "parameter_types": [["Time"],["String"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/nonce.rb", 24]
+      },
+      "to_s": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/nonce.rb", 28]
+      },
+      "valid?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/nonce.rb", 36]
+      },
+      "stale?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/nonce.rb", 40]
+      },
+      "digest": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/nonce.rb", 32]
+      },
+      "fresh?": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/nonce.rb", 44]
+      }
+   },
+   "Rack::Session::Cookie::Identity": {
+      "encode": {
+         "parameter_names": ["str"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/cookie.rb", 100]
+      },
+      "decode": {
+         "parameter_names": ["str"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/cookie.rb", 101]
+      }
+   },
+   "Rack::Auth::Digest::Params": {
+      "initialize": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/params.rb", 23]
+      },
+      "to_s": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/params.rb", 39]
+      },
+      "quote": {
+         "parameter_names": ["str"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/auth/digest/params.rb", 45]
+      }
+   },
+   "Rack::Utils::HeaderHash": {
+      "initialize": {
+         "parameter_names": ["hash"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 440]
+      },
+      "initialize_copy": {
+         "parameter_names": ["other"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 447]
+      },
+      "each": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 452]
+      },
+      "to_hash": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 458]
+      },
+      "include?": {
+         "parameter_names": ["k"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 481]
+      },
+      "names": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Hash"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 506]
+      },
+      "member?": {
+         "parameter_names": ["k"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 481]
+      },
+      "replace": {
+         "parameter_names": ["other"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 499]
+      },
+      "delete": {
+         "parameter_names": ["k"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 475]
+      },
+      "merge!": {
+         "parameter_names": ["other"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 489]
+      },
+      "merge": {
+         "parameter_names": ["other"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 494]
+      },
+      "has_key?": {
+         "parameter_names": ["k"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 481]
+      },
+      "key?": {
+         "parameter_names": ["k"],
+         "parameter_types": [["String"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 481]
+      }
+   },
+   "Rack::Utils::Context": {
+      "initialize": {
+         "parameter_names": ["app_f", "app_r"],
+         "parameter_types": [["Object"],["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 415]
+      },
+      "call": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 420]
+      },
+      "app": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 413]
+      },
+      "for": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 413]
+      },
+      "context": {
+         "parameter_names": ["env", "app"],
+         "parameter_types": [["Hash"],["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 428]
+      },
+      "recontext": {
+         "parameter_names": ["app"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/utils.rb", 424]
+      }
+   },
+   "Rack::Session::Abstract::ID": {
+      "delete_session": {
+         "parameter_names": ["req", "sid", "options"],
+         "parameter_types": [["Object"],["String"],["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 429]
+      },
+      "find_session": {
+         "parameter_names": ["req", "sid"],
+         "parameter_types": [["Object"],["String"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 414]
+      },
+      "write_session": {
+         "parameter_names": ["req", "sid", "session", "options"],
+         "parameter_types": [["Object"],["String"],["Object"],["Hash"]
+         ],
+         "ret_types": ["String or Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 422]
+      }
+   },
+   "Rack::Session::Abstract::Persisted": {
+      "initialize": {
+         "parameter_names": ["app", "options"],
+         "parameter_types": [["Object"],["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 207]
+      },
+      "make_request": {
+         "parameter_names": ["env"],
+         "parameter_types": [["Hash"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 230]
+      },
+      "set_cookie": {
+         "parameter_names": ["request", "res", "cookie"],
+         "parameter_types": [["Object"],["Object"],["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 361]
+      },
+      "extract_session_id": {
+         "parameter_names": ["request"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["String"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 276]
+      },
+      "delete_session": {
+         "parameter_names": ["req", "sid", "options"],
+         "parameter_types": [["Object"],["String"],["Hash"]
+         ],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 394]
+      },
+      "session_exists?": {
+         "parameter_names": ["req"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Bool"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 290]
+      },
+      "load_session": {
+         "parameter_names": ["req"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Array"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 268]
+      },
+      "initialize_sid": {
+         "parameter_names": [],
+         "parameter_types": [],
+         "ret_types": ["nil"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 234]
+      },
+      "prepare_session": {
+         "parameter_names": ["req"],
+         "parameter_types": [["Object"]
+         ],
+         "ret_types": ["Object"],
+         "source_location": ["/Users/cassidy/.rvm/gems/ruby-2.3.0/gems/rack-2.0.1/lib/rack/session/abstract/id.rb", 257]
+      }
+  }
+}
