@@ -18,3 +18,4 @@ if __name__ == '__main__':
                                   reverse = True):
             print('{}: {} occurences ({:.1f}%)'.format(type, count,
                     count / len(y) * 100))
+        print('Total: {} occurences'.format(len(y)))
