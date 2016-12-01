@@ -13,7 +13,7 @@ from sklearn.model_selection import cross_val_score, KFold
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import MultinomialNB, GaussianNB
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
@@ -38,6 +38,7 @@ models.append(("Extra Trees Classifier", ExtraTreesClassifier()))
 feature_names = ['use_word2vec', 'use_class', 'use_params']
 feature_sets = [dict(zip(feature_names, use_features)) for use_features in
                 itertools.product(*([(False, True)] * len(feature_names)))]
+feature_sets = feature_sets[-1:]
 
 # Run the models using cross validation and write results to file
 with open(resultsfname, 'w') as resultsfile:
@@ -57,6 +58,10 @@ with open(resultsfname, 'w') as resultsfile:
         row = [feature_set[feature] for feature in feature_names]
         for name, model in models:
             logging.info("testing {} with {}".format(feature_set_str, name))
+            # Switch to Guassian NB for word2vec data
+            if name == 'Naive Bayes' and feature_set['use_word2vec']:
+                model = GaussianNB()
+            
             pipeline = make_pipeline(feature_extractor, model)
             kfold = KFold(n_splits=10, shuffle=True)
             results = cross_val_score(pipeline, X, y, cv=kfold, scoring="accuracy")
