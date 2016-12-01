@@ -16,7 +16,6 @@ files = []
 #files.push(File.expand_path("../"+ARGV[0], __FILE__))
 files.push(ARGV[0])
 key = File.basename ARGV[0]
-puts "--------\n key: #{key}"
 # ARGV.each{|input|
 #   if input =~ /(.)*\.rb$/ then
 #     tmp = File.expand_path("../"+input, __FILE__)
@@ -32,6 +31,7 @@ out_file  = File.expand_path("../"+ARGV[1],__FILE__)
 #out_file = ARGV[1]
 
 require_relative "../rdl-modified/lib/rdl"
+# require_relative '../../tmp/rdl/lib/rdl'
 at_exit do
   $stdout = old_stdout
   #sig_hash = Hash.new(Hash.new(Hash.new(Array.new)))
@@ -40,19 +40,30 @@ at_exit do
 
   #incomming awful variable names
   #if confused just print out $__rdl_info.info
+  #puts "rdl info: #{$__rdl_info.info}"
   $__rdl_info.info.each{|klass_str,methods_hash|
     next if  klass_str =~ /(Test::(.)+)/
     #puts"-----------------------"
     the_klass =  RDL::Util.to_class(klass_str)
-    if klass_str =~ /\[s\](.+)/ then klass_str = $1 end
+    is_singleton = false
+    if klass_str =~ /\[s\](.+)/ then
+      is_singleton = true
+      klass_str = $1
+     end
     #puts "class: #{klass_str} methods:"
 
-    the_klass.instance_methods(false).each{|meth|
-      next unless meth.to_s =~ /^__rdl_(.*)_old/
-      the_klass.instance_method(meth).parameters.each{|param_arr|
-        sig_hash[klass_str][$1]['parameter_names'].push(param_arr[1].to_s)
+    if is_singleton then
+      the_klass.singleton_methods(false).each{|meth|
+        puts "meth: #{meth.to_s}"
       }
-    }
+    else
+      the_klass.instance_methods(false).each{|meth|
+        next unless meth.to_s =~ /^__rdl_(.*)_old/
+        the_klass.instance_method(meth).parameters.each{|param_arr|
+          sig_hash[klass_str][$1]['parameter_names'].push(param_arr[1].to_s)
+        }
+      }
+    end
 
     methods_hash.each{|meth_sym,method_info|
       meth = meth_sym.to_s
@@ -106,13 +117,10 @@ end
 #
 # $enable_tracing = true
 
-#pwd = Dir.pwd
-puts "---------------"
 files.each{|fname|
-#  Dir.chdir(File.dirname(fname))
   $LOAD_PATH.unshift(File.dirname(fname)) unless $LOAD_PATH.include?(File.dirname(fname))
   puts fname
-  $stdout = StringIO.new('', 'w')
+#  $stdout = StringIO.new('', 'w')
   require fname if fname =~ /(.)*\.rb$/
-#  Dir.chdir(pwd)
+#  $stdout = old_stdout
 }
