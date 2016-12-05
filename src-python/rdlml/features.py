@@ -114,7 +114,7 @@ class ParameterFeatureExtractor(FeatureExtractor):
         features = [parameter_name]
         if self.use_method:
             features.append(method_name)
-        if self.user_class:
+        if self.use_class:
             features.append(class_name)
         return features
         
