@@ -76,7 +76,8 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
                     else:
                         feature_vectors.append(self._count_vectorize(feature))
                 else:
-                    feature_vectors.append(array([float(feature)]))
+                    feature_vectors.append(array([float(feature)] *
+                            self.word2vec.vector_size))
             feature_vector = fn.hstack(feature_vectors)
             Xt.append(feature_vector)
         return fn.vstack(Xt)
@@ -98,5 +99,22 @@ class ReturnFeatureExtractor(FeatureExtractor):
             params = params.split(',')
             features.append(len(params))
             features.append('_'.join(params))
+        return features
+    
+class ParameterFeatureExtractor(FeatureExtractor):
+    
+    def __init__(self, word2vec, use_word2vec=True, use_method=False,
+                 use_class=False):
+        super().__init__(word2vec, use_word2vec)
+        self.use_method = use_method
+        self.use_class = use_class
+        
+    def _get_features(self, row):
+        parameter_name, method_name, class_name = row
+        features = [parameter_name]
+        if self.use_method:
+            features.append(method_name)
+        if self.user_class:
+            features.append(class_name)
         return features
         
