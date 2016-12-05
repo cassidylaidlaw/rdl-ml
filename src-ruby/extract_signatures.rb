@@ -1,5 +1,6 @@
 
 require 'json'
+require 'method_source'
 
 if ARGV.length < 2
   puts "Usage: ruby extract_signatures.rb file1.rb file2.rb ... namespace output.json"
@@ -28,12 +29,18 @@ else
           klass.instance_methods(false)
       methods.each { |method_symbol|
         method = klass.instance_method(method_symbol)
+        begin
+          method_source = method.source
+        rescue MethodSource::SourceNotFoundError
+          method_source = nil
+        end
         method_signature = {
           "parameter_names" => method.parameters.map {
             |_, parameter| parameter.to_s
           },
           "parameter_types" => [["Object"]] * method.parameters.length,
           "ret_types" => ["Object"],
+          "meth_source" => method_source,
           "source_location" => method.source_location
         }
         class_signature[method.name.to_s] = method_signature
