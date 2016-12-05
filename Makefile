@@ -34,7 +34,7 @@ $(DATADIR)/word2vec/%.files.word2vec.pickle : scripts/train_word2vec.py \
 	$(PYTHON) $^ $@ file
 	
 word2vec : $(DATADIR)/word2vec/awesome-rails-repos.word2vec.pickle \
-	$(DATADIR)/word2vecawesome-rails-repos.files.word2vec.pickle
+	$(DATADIR)/word2vec/awesome-rails-repos.files.word2vec.pickle
 
 # Extract ruby types from standard library
 
