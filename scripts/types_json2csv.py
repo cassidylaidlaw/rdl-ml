@@ -24,10 +24,12 @@ if __name__ == '__main__':
             # Write header row
             if data_type == 'return':
                 csv_out.writerow(['Method name', 'Class name',
-                                  'Parameter names', 'Return type'])
+                                  'Parameter names', 'Method length',
+                                  'Return type'])
             else:
                 csv_out.writerow(['Parameter name', 'Method name',
-                                  'Class name', 'Parameter type'])
+                                  'Class name', 'Method length',
+                                  'Parameter type'])
 
             for class_name, methods in json_data.items():
                 if class_name.lower().startswith('test'):
@@ -61,15 +63,23 @@ if __name__ == '__main__':
                                                    parameter_types))
                     else:
                         parameter_types = []
+                        
+                    method_length = 0
+                    if 'meth_source' in method_data:
+                        method_source = method_data['meth_source']
+                        method_length = sum(line.strip() != '' for line in
+                                            method_source.split('\n'))                    
 
                     # Write rows to CSV
                     if data_type == 'return':
                         if return_type is not None:
                             csv_out.writerow([method_name, class_name,
                                               ','.join(parameter_names),
+                                              method_length,
                                               return_type])
                     else:
                         for parameter_name, parameter_type in \
                                 zip(parameter_names, parameter_types):
                             csv_out.writerow([parameter_name, method_name,
-                                              class_name, parameter_type])
+                                              class_name, method_length,
+                                              parameter_type])

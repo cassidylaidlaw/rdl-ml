@@ -85,13 +85,14 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
 class ReturnFeatureExtractor(FeatureExtractor):
     
     def __init__(self, word2vec, use_word2vec=True, use_class=False,
-                 use_params=False):
+                 use_params=False, use_method_length=False):
         super().__init__(word2vec, use_word2vec)
         self.use_class = use_class
         self.use_params = use_params
+        self.use_method_length = use_method_length
         
     def _get_features(self, row):
-        method_name, class_name, params = row
+        method_name, class_name, params, method_length = row
         features = [method_name]
         if self.use_class:
             features.append(class_name)
@@ -99,22 +100,27 @@ class ReturnFeatureExtractor(FeatureExtractor):
             params = params.split(',')
             features.append(len(params))
             features.append('_'.join(params))
+        if self.use_method_length:
+            features.append(method_length)
         return features
     
 class ParameterFeatureExtractor(FeatureExtractor):
     
     def __init__(self, word2vec, use_word2vec=True, use_method=False,
-                 use_class=False):
+                 use_class=False, use_method_length=False):
         super().__init__(word2vec, use_word2vec)
         self.use_method = use_method
         self.use_class = use_class
+        self.use_method_length = use_method_length
         
     def _get_features(self, row):
-        parameter_name, method_name, class_name = row
+        parameter_name, method_name, class_name, method_length = row
         features = [parameter_name]
         if self.use_method:
             features.append(method_name)
         if self.use_class:
             features.append(class_name)
+        if self.use_method_length:
+            features.append(method_length)
         return features
         
